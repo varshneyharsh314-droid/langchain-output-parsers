@@ -37,4 +37,5 @@ chain = template | model | parser
 result = chain.invoke({'topic':'black hole'}) # we want to pass a empty dictanary if no input variable 
 
 print(result)
+# we do not enforce the schema (do not give the structure of the json object it is decided by the llm)
 
