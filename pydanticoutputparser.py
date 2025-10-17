@@ -1,7 +1,10 @@
+PydanticOutputParser
+
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
+# click and click on the output_parsers to get more output parsers
 from pydantic import BaseModel, Field
 
 load_dotenv()
@@ -28,8 +31,11 @@ template = PromptTemplate(
     partial_variables={'format_instruction':parser.get_format_instructions()}
 )
 
+# prompt = template.invoke({'place':'indian'})
+# print(prompt)
 chain = template | model | parser
 
 final_result = chain.invoke({'place':'sri lankan'})
 
 print(final_result)
+
